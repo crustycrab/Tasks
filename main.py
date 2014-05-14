@@ -16,7 +16,8 @@ def show_tasks():
 @app.route('/task/<int:id>', methods=['POST', 'GET'])
 def task(id):
     if request.method == 'POST':
-        schema.change_state(id, request.form.get('state', None))
+        schema.change_state(id, request.form.get('state'))
+        schema.change_workers(id, request.form)
         return redirect(url_for('show_tasks'))
 
     workers = schema.get_all_workers()

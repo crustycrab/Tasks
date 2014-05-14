@@ -129,12 +129,25 @@ def get_task_with_workers(id):
 
 def change_state(id, result):
     connection = connect_db()
-    print('FDDDDDDDDDDDD: %s, %s' % (id, result))
     with connection:
         cursor = connection.cursor()
         if not result is None:
             script = 'update tasks set result=%d where id=%d;' % (int(result), int(id))
             execute(cursor, script)
+
+def change_class_workers(id, form):
+	actual_workers = get_workers_by_id(id)
+	all_workers = get_all_workers()
+	connection = connect_db()
+	with connection:
+		cursor = connection.cursor()
+		for worker in actual_workers:
+			if not worker['worker'] in form:
+				script = 'delete from classes where task_id=%d and worker_id=%d;' % (int(id), int(worker['id']))
+		for worker in all_workers:
+			worker_id = form.get(worker['worker'])
+			if not worker_id:
+				script = 'insert into classes (task_id, worker_id) values (%d, %d);' % (int(id), int(worker_id))
 
 if __name__ == '__main__':
     init_db()
