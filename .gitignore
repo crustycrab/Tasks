@@ -1,4 +1,4 @@
 # Build and Release Folders
 venv
-.pyc
+*.pyc
 __pycache__
