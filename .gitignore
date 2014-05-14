@@ -1,5 +1,5 @@
 # Build and Release Folders
-venv
+venv/*
 *.pyc
-__pycache__
+__pycache__/*
 log.txt

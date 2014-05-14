@@ -21,10 +21,10 @@ create table classes (
 	foreign key (task_id) references tasks(id),
 	foreign key (worker_id) references workers(id)
 ) ENGINE=InnoDB;
-insert into workers (worker) values ('John');
-insert into workers (worker) values ('Patrick');
-insert into workers (worker) values ('Max');
-insert into workers (worker) values ('Kesha');
+insert into workers (worker) values ('Паша');
+insert into workers (worker) values ('Вадим');
+insert into workers (worker) values ('Иннокентий');
+insert into workers (worker) values ('Геннадий');
 -- 0 == Done, 1 == In process, 2 == Canceled
 insert into tasks (date, task, result) values ('2014-05-14 17:16:34', 'Убраться в доме', 0);
 insert into tasks (date, task, result) values ('2014-05-13 20:54:34', 'Подстричь лужайку', 2);
