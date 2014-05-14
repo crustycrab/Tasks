@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul>
+  <div class=workers>
+    Исполнители: 
+  {% for worker in task.workers %}
+    {{ worker.worker }},
+  {% else %}
+    Их пока нет :(
+  {% endfor %}
+  </div>
+  <span class=date>{{ task.date }}</span>
+  {% if task.result == 0 %}
+  <span class='result done'>Решено</span>
+  {% elif task.result == 1 %}
+  <span class='result process'>В процессе</span>
+  {% else %}
+  <span class='result canceled'>Отменено</span>
+  {% endif %}
+  <li>
+    {{ task.task }}
+  </li>
+</ul>
+  <form action="{{ url_for('task', id=task.id) }}" method=post>
+    <div class=state>
+      <p><b>Текущее состояние.</b></p>
+      <p><input type="radio" name="state" value="0" {% if task.result == 0 %} checked="checked" {% endif %}>Решено<br>
+      <input type="radio" name="state" value="1" {% if task.result == 1 %} checked="checked" {% endif %}>В процессе<br>
+      <input type="radio" name="state" value="2" {% if task.result == 2 %} checked="checked" {% endif %}>Отменено</p>
+    </div>
+    <div class=workers_form>
+      <p><b>Изменить состав исполнителей.</b></p>
+      <p>
+      {% for worker in workers %}
+      
+      <input type="checkbox" name="{{ worker.worker }}" value="{{ worker.id }}" {% if worker in task.workers %} checked="checked" {% endif %}>{{ worker.worker }}<br>
+      {% endfor %}
+      </p>
+    </div>
+    <div class=wrap></div>
+    <p><input type="submit" value="Отправить"></p>
+  </form>
+{% endblock %}

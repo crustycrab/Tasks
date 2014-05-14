@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Tasks{% block title %}{% endblock %}</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<nav><a href='/'>Домой</a></nav>
+<div class=page>
+{% for message in get_flashed_messages() %}
+  <div class=flash>{{ message }}</div>
+{% endfor %}
+{% block body %}{% endblock %}
+</div>
+<footer>&copy Crusty Crab</footer>

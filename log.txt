@@ -1,0 +1,375 @@
+DATABASE INITED
+LOG[2014-05-14 20:02:24] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:02:24] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:02:24] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:02:24] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:02:24] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:02:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:02:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:02:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:02:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:02:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:02:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:02:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:02:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:02:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:02:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:03:03] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:03:03] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:03:03] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:03:25] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:03:25] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:03:25] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:07:00] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:07:00] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:07:00] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:07:37] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:07:37] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:07:37] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:10] executed:
+	"update tasks set result=1 where id=1;"
+LOG[2014-05-14 20:09:10] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:10] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:10] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:10] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:10] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:13] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:13] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:09:13] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:15] executed:
+	"update tasks set result=1 where id=2;"
+LOG[2014-05-14 20:09:15] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:15] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:15] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:15] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:15] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:17] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:17] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:09:17] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:18] executed:
+	"update tasks set result=2 where id=2;"
+LOG[2014-05-14 20:09:18] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:18] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:18] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:18] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:18] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:20] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:20] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:09:20] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:22] executed:
+	"update tasks set result=2 where id=0;"
+LOG[2014-05-14 20:09:22] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:22] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:22] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:22] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:22] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:27] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:28] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:28] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:09:28] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:30] executed:
+	"update tasks set result=2 where id=0;"
+LOG[2014-05-14 20:09:30] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:30] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:30] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:30] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:30] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:31] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:31] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:09:31] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:33] executed:
+	"update tasks set result=2 where id=0;"
+LOG[2014-05-14 20:09:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:35] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:35] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:09:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:38] executed:
+	"update tasks set result=2 where id=1;"
+LOG[2014-05-14 20:09:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:09:39] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:09:39] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:09:39] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:43] executed:
+	"update tasks set result=1 where id=1;"
+LOG[2014-05-14 20:09:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:09:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:09:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:09:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:09:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:10:26] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:10:26] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:10:26] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:10:29] executed:
+	"update tasks set result=2 where id=0;"
+LOG[2014-05-14 20:10:29] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:10:29] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:10:29] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:10:29] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:10:29] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:10:34] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:10:34] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:10:34] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:10:38] executed:
+	"update tasks set result=2 where id=0;"
+LOG[2014-05-14 20:10:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:10:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:10:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:10:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:10:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:13:52] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:13:52] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:13:52] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:13:56] executed:
+	"update tasks set result=1 where id=0;"
+LOG[2014-05-14 20:13:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:13:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:13:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:13:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:13:56] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:33] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:33] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:14:33] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:35] executed:
+	"update tasks set result=0 where id=1;"
+LOG[2014-05-14 20:14:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:35] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:36] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:36] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:14:36] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:38] executed:
+	"update tasks set result=1 where id=2;"
+LOG[2014-05-14 20:14:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:38] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:41] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:41] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:14:41] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:43] executed:
+	"update tasks set result=1 where id=1;"
+LOG[2014-05-14 20:14:43] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:43] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:43] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:43] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:43] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:44] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:44] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:14:44] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:46] executed:
+	"update tasks set result=2 where id=2;"
+LOG[2014-05-14 20:14:46] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:46] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:46] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:46] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:46] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:49] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:49] executed:
+	"select * from tasks where id = 2;"
+LOG[2014-05-14 20:14:49] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:51] executed:
+	"update tasks set result=0 where id=2;"
+LOG[2014-05-14 20:14:51] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:51] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:51] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:51] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:51] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"
+LOG[2014-05-14 20:14:52] executed:
+	"select * from workers;"
+LOG[2014-05-14 20:14:52] executed:
+	"select * from tasks where id = 1;"
+LOG[2014-05-14 20:14:52] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:54] executed:
+	"update tasks set result=2 where id=1;"
+LOG[2014-05-14 20:14:54] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 1 			order by classes.task_id;"
+LOG[2014-05-14 20:14:54] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 2 			order by classes.task_id;"
+LOG[2014-05-14 20:14:54] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 3 			order by classes.task_id;"
+LOG[2014-05-14 20:14:54] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 4 			order by classes.task_id;"
+LOG[2014-05-14 20:14:54] executed:
+	"select workers.id, workers.worker 			from workers join classes 			on classes.worker_id = workers.id and classes.task_id = 5 			order by classes.task_id;"

@@ -1,0 +1,133 @@
+body {
+	font-family: Droid Sans, Verdana, sans-serif;
+	background: #eee;
+	/*background-image: url("img/stardust.png");*/
+	background-color: #556;
+	background-position: center;
+	color: #556;
+}
+
+.page, nav, footer {
+	width: 600px;
+	margin: auto;
+	background-color: #efefef;
+	padding: 20px;
+	border-radius: 3px;
+	margin-top: 20px;
+}
+
+nav {
+	text-align: center;
+}
+
+.page {
+}
+
+footer {
+	/*color: #ccc;*/
+	text-align: right;
+	font-size: .8em;
+	clear: both;
+}
+
+a {
+	color: #556;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+nav > a {
+	padding: 20px;
+}
+
+nav > a:hover {	
+	color: #efefef;
+	background-color: #556;
+}
+
+ul {
+	list-style: square;
+	border-left: 1px dashed #ccc;
+}
+
+ul > li {
+	/*max-width: 60%;*/
+	clear: right;
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #ccc;
+}
+
+ul > li:last-child {
+	border-bottom: none;
+}
+
+textarea {
+
+}
+
+textarea:hover, textarea:focus {
+	border: 2px solid #226;
+}
+
+.flash {
+	border: 1px solid #226;
+	color: #226;
+	border-radius: 3px;
+	background-color: #bcd;
+	padding: 10px;
+	text-indent: 20px;
+}
+
+.date {
+	float: right;
+	color: #ccc;
+	font-size: 0.8em;
+}
+
+.date:hover {
+	color: inherit;
+}
+
+.result {
+	float: right;
+	font-size: 0.8em;
+	margin-right: 5px;
+}
+
+.done {
+	color: #262;
+}
+
+.process {
+	color: #226;
+}
+
+.canceled {
+	color: #622;
+}
+
+.workers {
+	color: #ccc;
+	font-size: 0.8em;
+	float: left;
+}
+
+.state, .workers_form {
+	max-width: 50%;
+}
+
+.state {
+	float: left;
+}
+
+.workers_form {
+	float: right;
+}
+
+.wrap {
+	clear: both;
+}

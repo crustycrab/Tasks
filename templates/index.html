@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul>
+{% for task in tasks %}
+  <div class=workers>
+    Исполнители: 
+  {% for worker in task.workers %}
+    {{ worker.worker }},
+  {% else %}
+    Их пока нет :(
+  {% endfor %}
+  </div>
+  <span class=date>{{ task.date }}</span>
+  {% if task.result == 0 %}
+  <span class='result done'>Решено</span>
+  {% elif task.result == 1 %}
+  <span class='result process'>В процессе</span>
+  {% else %}
+  <span class='result canceled'>Отменено</span>
+  {% endif %}
+  <li>
+    <a href="{{ url_for('task', id=task.id) }}">{{ task.task }}</a>
+  </li>
+{% endfor %}
+</ul>
+{% endblock %}
