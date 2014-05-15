@@ -15,6 +15,10 @@ def connect_db():
         host, user, password, db_name)
 
 
+def get_time():
+    return strftime("%Y-%m-%d %H:%M:%S", gmtime())
+
+
 def exec_sql_file(cursor, sql_file):
     statement = ""
 
@@ -28,30 +32,25 @@ def exec_sql_file(cursor, sql_file):
             try:
                 cursor.execute(statement)
             except Exception as e:
-                print(str(e.args))
+                pass
 
             statement = ""
 
 
 def execute(cursor, script):
-    time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-    log_message = 'LOG[%s]' % time
-    errors = None
-    try:
-        cursor.execute(script)
-    except Exception, e:
-        errors = str(e.args)
-    finally:
-        log_message += ' executed:\n\t"%s"\n' % script
-        if errors:
-            log_message += '\tERORS: %s\n'
-
-        log(log_message)
+    cursor.execute(script)
 
 
-def log(message):
-    with open("log.txt", "a") as logfile:
-        logfile.write(message)
+def log(id, script):
+    time = get_time()
+    script = re.sub(r'\s+', ' ', script)
+    log = 'LOG[%s]: %s' % (time, script)
+    connection = connect_db()
+    with connection:
+        cursor = connection.cursor()
+        script = 'insert into task_logs (task_id, log) values (%d, \'%s\')' % (
+            int(id), log)
+        execute(cursor, script)
 
 
 def init_db():
@@ -60,7 +59,7 @@ def init_db():
         cursor = connection.cursor()
         exec_sql_file(cursor, os.path.abspath('schema.sql'))
         with open('log.txt', 'w') as logfile:
-            logfile.write('DATABASE INITED\n')
+            logfile.write('DATABASE INITED [%s]\n' % get_time())
 
 
 def decode_row(row, encoding='utf-8'):
@@ -132,24 +131,40 @@ def change_state(id, result):
     with connection:
         cursor = connection.cursor()
         if not result is None:
-            script = 'update tasks set result=%d where id=%d;' % (int(result), int(id))
+            script = 'update tasks set result=%d where id=%d;' % (
+                int(result), int(id))
             execute(cursor, script)
+            log(id, script)
+
 
 def change_workers(id, form):
-	actual_workers = get_workers_by_id(id)
-	all_workers = get_all_workers()
-	connection = connect_db()
-	with connection:
-		cursor = connection.cursor()
-		for worker in actual_workers:
-			if not worker['worker'] in form:
-				script = 'delete from classes where task_id=%d and worker_id=%d;' % (int(id), int(worker['id']))
-				execute(cursor, script)
-		for worker in all_workers:
-			worker_id = form.get(worker['worker'])
-			if not worker_id is None and worker not in actual_workers:
-				script = 'insert into classes (task_id, worker_id) values (%d, %d);' % (int(id), int(worker_id))
-				execute(cursor, script)
+    actual_workers = get_workers_by_id(id)
+    all_workers = get_all_workers()
+    connection = connect_db()
+    with connection:
+        cursor = connection.cursor()
+        for worker in actual_workers:
+            if not worker['worker'] in form:
+                script = 'delete from classes where task_id=%d and worker_id=%d;' % (
+                    int(id), int(worker['id']))
+                execute(cursor, script)
+                log(id, script)
+        for worker in all_workers:
+            worker_id = form.get(worker['worker'])
+            if not worker_id is None and worker not in actual_workers:
+                script = 'insert into classes (task_id, worker_id) values (%d, %d);' % (
+                    int(id), int(worker_id))
+                execute(cursor, script)
+                log(id, script)
+
+
+def get_logs(id):
+    connection = connect_db()
+    with connection:
+        cursor = connection.cursor(mdb.cursors.DictCursor)
+        script = 'select id, log from task_logs where task_id = %d' % int(id)
+        execute(cursor, script)
+    return cursor.fetchall()
 
 if __name__ == '__main__':
     init_db()

@@ -40,4 +40,11 @@
     <div class=wrap></div>
     <p><input type="submit" value="Отправить"></p>
   </form>
+  <div class=logs>
+  {% for log in logs %}
+    <p>
+      {{ log.log }}
+    </p>
+  {% endfor %}
+  </div>
 {% endblock %}

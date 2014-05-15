@@ -20,9 +20,10 @@ def task(id):
         schema.change_workers(id, request.form)
         return redirect(url_for('show_tasks'))
 
+    logs = schema.get_logs(id)
     workers = schema.get_all_workers()
     task = schema.get_task_with_workers(id)
-    return render_template('edit.html', workers=workers, task=task)
+    return render_template('edit.html', workers=workers, task=task, logs=logs)
 
 
 if __name__ == '__main__':

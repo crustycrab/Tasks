@@ -1,4 +1,5 @@
 drop table if exists classes;
+drop table if exists task_logs;
 drop table if exists tasks;
 drop table if exists workers;
 create table tasks (
@@ -21,6 +22,12 @@ create table classes (
 	foreign key (task_id) references tasks(id),
 	foreign key (worker_id) references workers(id)
 ) ENGINE=InnoDB;
+create table task_logs (
+	id int auto_increment not null,
+	task_id int not null,
+	log varchar(255) not null,
+	primary key (id)
+) ENGINE=InnoDB CHARSET=utf8;
 insert into workers (worker) values ('Паша');
 insert into workers (worker) values ('Вадим');
 insert into workers (worker) values ('Иннокентий');
