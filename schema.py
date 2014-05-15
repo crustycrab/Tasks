@@ -58,8 +58,6 @@ def init_db():
     with connection:
         cursor = connection.cursor()
         exec_sql_file(cursor, os.path.abspath('schema.sql'))
-        with open('log.txt', 'w') as logfile:
-            logfile.write('DATABASE INITED [%s]\n' % get_time())
 
 
 def decode_row(row, encoding='utf-8'):
