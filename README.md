@@ -12,7 +12,7 @@ Tasks
 
 #Launch
 
-1. Change host/user/password/bd name in scheme.py
+1. Change host/user/password/db_name in scheme.py
 2. Run from command line scheme.py or just import function init_db() from shell.
 3. Run main.py via command line.
 4. 127.0.0.1:5000
