@@ -19,7 +19,7 @@
   <span class='result canceled'>Отменено</span>
   {% endif %}
   <li>
-    {{ task.task }} <div class=edit><a href="{{ url_for('task', id=task.id) }}">Редактировать</a></div>
+    {{ task.task }} <a href="{{ url_for('task', id=task.id) }}"><div class=edit>Редактировать</div></a>
   </li>
 {% endfor %}
 </ul>

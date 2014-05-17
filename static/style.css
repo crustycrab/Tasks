@@ -158,9 +158,12 @@ textarea:focus {
 	text-decoration: none;
 	padding: 5px;
 	border-radius: 3px;
-	border: 1px dashed #ccc;
+	background-color: #ccc;
+	border: 1px dashed #efefef;
+	text-align: center;
 }
 
 .edit:hover {
 	background-color: #556;
+	color: #efefef;
 }
