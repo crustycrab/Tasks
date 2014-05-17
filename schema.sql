@@ -24,6 +24,7 @@ create table classes (
 ) ENGINE=InnoDB;
 create table task_logs (
 	id int auto_increment not null,
+	date timestamp not null,
 	task_id int not null,
 	log varchar(255) not null,
 	primary key (id)

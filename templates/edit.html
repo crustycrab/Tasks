@@ -4,7 +4,7 @@
   <div class=workers>
     Исполнители: 
   {% for worker in task.workers %}
-    {{ worker.worker }},
+    {{ worker.worker }};
   {% else %}
     Их пока нет :(
   {% endfor %}
@@ -31,20 +31,24 @@
     <div class=workers_form>
       <p><b>Изменить состав исполнителей.</b></p>
       <p>
-      {% for worker in workers %}
+      {% for worker in all_workers %}
       
       <input type="checkbox" name="{{ worker.worker }}" value="{{ worker.id }}" {% if worker in task.workers %} checked="checked" {% endif %}>{{ worker.worker }}<br>
       {% endfor %}
       </p>
     </div>
     <div class=wrap></div>
+    <p><b>Изменить текст задания</b></p>
+    <textarea name='task_text' cols=84, rows=6>{{ task.task }}</textarea>
     <p><input type="submit" value="Отправить"></p>
   </form>
+  {% if logs %}
   <div class=logs>
   {% for log in logs %}
     <p>
-      {{ log.log }}
+      {{ log.date }}, {{ log.log }}
     </p>
   {% endfor %}
   </div>
+  {% endif %}
 {% endblock %}

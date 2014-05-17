@@ -1,21 +1,31 @@
 #!/usr/bin/python
+#-*-encoding: utf-8-*-
 
 import MySQLdb as mdb
 import os
 import re
 from time import gmtime, strftime
 
+DB_CHARSET = 'utf8'
+DB_HOST = 'localhost'
+DB_USER = 'crusty'
+DB_PASSWORD = 'x'
+DB_NAME = 'testdb'
+DB_USE_UNICODE = True
+
+STATES = (u'Решено', u'В процессе', u'Отменено')
+
 
 def connect_db():
-    host = 'localhost'
-    user = 'crusty'
-    password = 'x'
-    db_name = 'testdb'
+    """Returning connection object"""
     return mdb.connect(
-        host, user, password, db_name)
+        DB_HOST, DB_USER, DB_PASSWORD,
+        DB_NAME, charset=DB_CHARSET,
+        use_unicode=DB_USE_UNICODE)
 
 
 def get_time():
+    """Just current time"""
     return strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
 
@@ -37,69 +47,51 @@ def exec_sql_file(cursor, sql_file):
             statement = ""
 
 
-def execute(cursor, script):
-    cursor.execute(script)
+def execute(script, args=None):
+    """execute(script) executed passed script"""
+    connection = connect_db()
+    with connection:
+        cursor = connection.cursor(mdb.cursors.DictCursor)
+        cursor.execute(script, args)
+    return cursor.fetchall()
 
 
-def log(id, script):
+def log(id, message):
+    """log(id, message) logging passed message
+    to task id to table task_logs"""
     time = get_time()
-    script = re.sub(r'\s+', ' ', script)
-    log = 'LOG[%s]: %s' % (time, script)
+    script = re.sub(r'\s+', ' ', message)
     connection = connect_db()
     with connection:
         cursor = connection.cursor()
-        script = 'insert into task_logs (task_id, log) values (%d, \'%s\')' % (
-            int(id), log)
-        execute(cursor, script)
+        script = 'insert into task_logs (date, task_id, log) values (now(), %s, %s)'
+        execute(script, (id, message))
 
 
 def init_db():
+    """Init database"""
     connection = connect_db()
     with connection:
         cursor = connection.cursor()
         exec_sql_file(cursor, os.path.abspath('schema.sql'))
 
 
-def decode_row(row, encoding='utf-8'):
-    def _decode(value):
-        if type(value) is str:
-            return value.decode(encoding)
-        return value
-
-    if type(row) is dict:
-        return {key: _decode(value) for key, value in row.iteritems()}
-    if type(row) in (tuple, list):
-        return [_decode(value) for value in row]
-    return row
-
-
 def get_workers_by_id(id):
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor(mdb.cursors.DictCursor)
-        script = 'select workers.id, workers.worker \
-			from workers join classes \
-			on classes.worker_id = workers.id and classes.task_id = %d \
-			order by classes.task_id;' % id
-        execute(cursor, script)
-    return [decode_row(worker) for worker in cursor.fetchall()]
+    script = 'select workers.id, workers.worker \
+		from workers join classes \
+		on classes.worker_id = workers.id and classes.task_id = %s \
+		order by classes.task_id;'
+    return execute(script, (id, ))
 
 
 def get_all_workers():
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor(mdb.cursors.DictCursor)
-        script = 'select * from workers;'
-        execute(cursor, script)
-    return [decode_row(worker) for worker in cursor.fetchall()]
+    script = 'select * from workers;'
+    return execute(script)
 
 
 def get_tasks():
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor(mdb.cursors.DictCursor)
-        cursor.execute('select * from tasks order by date desc;')
-    return [decode_row(row) for row in cursor.fetchall()]
+    script = 'select * from tasks order by date desc;'
+    return execute(script)
 
 
 def get_tasks_with_workers():
@@ -110,12 +102,8 @@ def get_tasks_with_workers():
 
 
 def get_task(id):
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor(mdb.cursors.DictCursor)
-        script = 'select * from tasks where id = %d;' % id
-        execute(cursor, script)
-    return decode_row(cursor.fetchone())
+    script = 'select * from tasks where id=%s;'
+    return execute(script, (id,))[0]
 
 
 def get_task_with_workers(id):
@@ -125,44 +113,53 @@ def get_task_with_workers(id):
 
 
 def change_state(id, result):
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor()
-        if not result is None:
-            script = 'update tasks set result=%d where id=%d;' % (
-                int(result), int(id))
-            execute(cursor, script)
-            log(id, script)
+    current_result = get_task(id)['result']
+    if not result is None and int(result) != current_result:
+        script = 'update tasks set result=%s where id=%s;'
+        execute(script, (result, id))
+        message = u'Новое состояние задания: "%s"' % STATES[int(result)]
+        log(id, message)
+
+
+def change_task_text(id, text):
+    current_text = get_task(id)['task']
+    if text != '' and text != current_text:
+        script = 'update tasks set task=%s where id=%s'
+        execute(script, (text, id))
+        message = u'Текст изменен: "%s"' % text
+        log(id, message)
 
 
 def change_workers(id, form):
     actual_workers = get_workers_by_id(id)
     all_workers = get_all_workers()
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor()
-        for worker in actual_workers:
-            if not worker['worker'] in form:
-                script = 'delete from classes where task_id=%d and worker_id=%d;' % (
-                    int(id), int(worker['id']))
-                execute(cursor, script)
-                log(id, script)
-        for worker in all_workers:
-            worker_id = form.get(worker['worker'])
-            if not worker_id is None and worker not in actual_workers:
-                script = 'insert into classes (task_id, worker_id) values (%d, %d);' % (
-                    int(id), int(worker_id))
-                execute(cursor, script)
-                log(id, script)
+
+    for_log = []
+    values = []
+    for worker in actual_workers:
+        script = 'delete from classes where task_id=%s and worker_id=%s;'
+        if not worker['worker'] in form:
+            execute(script, (id, worker['id']))
+            for_log.append(worker['worker'])
+    if len(for_log) > 0:
+        message = u'Удалены исполнители: "%s"' % ', '.join(for_log)
+        log(id, message)
+
+    for_log = []
+    for worker in all_workers:
+        worker_id = form.get(worker['worker'])
+        script = 'insert into classes (task_id, worker_id) values (%s, %s);'
+        if not worker_id is None and worker not in actual_workers:
+            execute(script, (id, worker_id))
+            for_log.append(worker['worker'])
+    if len(for_log) > 0:
+        message = u'Добавлены исполнители: "%s"' % ', '.join(for_log)
+        log(id, message)
 
 
 def get_logs(id):
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor(mdb.cursors.DictCursor)
-        script = 'select id, log from task_logs where task_id = %d' % int(id)
-        execute(cursor, script)
-    return cursor.fetchall()
+    script = 'select date, log from task_logs where task_id = %s'
+    return execute(script, (id,))
 
 if __name__ == '__main__':
     init_db()

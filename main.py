@@ -1,8 +1,7 @@
 #!/usr/bin/python
+#-*-encoding: utf-8-*-
 
-
-from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+from flask import Flask, request, redirect, url_for, render_template
 
 import schema
 
@@ -18,12 +17,13 @@ def task(id):
     if request.method == 'POST':
         schema.change_state(id, request.form.get('state'))
         schema.change_workers(id, request.form)
+        schema.change_task_text(id, request.form.get('task_text'))
         return redirect(url_for('show_tasks'))
 
-    logs = schema.get_logs(id)
-    workers = schema.get_all_workers()
     task = schema.get_task_with_workers(id)
-    return render_template('edit.html', workers=workers, task=task, logs=logs)
+    all_workers = schema.get_all_workers()
+    logs = schema.get_logs(id)
+    return render_template('edit.html', all_workers=all_workers, task=task, logs=logs)
 
 
 if __name__ == '__main__':
