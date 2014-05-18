@@ -1,10 +1,11 @@
-#!/usr/bin/python
 #-*-encoding: utf-8-*-
 
 import MySQLdb as mdb
 import os
 import re
 from time import gmtime, strftime
+
+from tasks_app import app
 
 DB_CHARSET = 'utf8'
 DB_HOST = 'localhost'
@@ -73,7 +74,8 @@ def init_db():
     connection = connect_db()
     with connection:
         cursor = connection.cursor()
-        exec_sql_file(cursor, os.path.abspath('schema.sql'))
+        exec_sql_file(cursor,
+                      os.path.join(os.path.dirname(os.path.abspath(__file__)), 'schema.sql'))
 
 
 def get_workers_by_id(id):
@@ -160,6 +162,3 @@ def change_workers(id, form):
 def get_logs(id):
     script = 'select date, log from task_logs where task_id = %s'
     return execute(script, (id,))
-
-if __name__ == '__main__':
-    init_db()

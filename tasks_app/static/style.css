@@ -1,7 +1,6 @@
 body {
 	font-family: Droid Sans, Verdana, sans-serif;
 	background: #eee;
-	/*background-image: url("img/stardust.png");*/
 	background-color: #556;
 	background-position: center;
 	color: #556;
@@ -24,10 +23,8 @@ nav {
 }
 
 footer {
-	/*color: #ccc;*/
 	text-align: right;
 	font-size: .8em;
-	/*margin-left: 50%;*/
 }
 
 a {
@@ -39,13 +36,13 @@ a:hover {
 	text-decoration: underline;
 }
 
-nav > * {
+nav > a {
 	padding: 15px;
 	border-radius: 3px;
 	border: 1px dashed #ccc;
 }
 
-nav > *:hover {	
+nav > a:hover {	
 	color: #efefef;
 	background-color: #556;
 	border: none;
@@ -155,15 +152,16 @@ textarea:focus {
 }
 
 .edit {
-	text-decoration: none;
-	padding: 5px;
+	display: block;
+	padding: 2px;
 	border-radius: 3px;
-	background-color: #ccc;
-	border: 1px dashed #efefef;
+	/*background-color: #ccc;*/
+	border: 1px solid #ccc;
 	text-align: center;
 }
 
 .edit:hover {
+	border: 1px solid #556;
 	background-color: #556;
 	color: #efefef;
 }
