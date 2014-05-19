@@ -5,8 +5,6 @@ import os
 import re
 from time import gmtime, strftime
 
-from tasks_app import app
-
 # States of task, u can change it if needed
 STATES = (u'Решено', u'В процессе', u'Отменено')
 
