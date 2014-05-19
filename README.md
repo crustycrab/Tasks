@@ -36,6 +36,7 @@ id | task_id | log
 
 ### classes
 id | task_id | worker_id
+--- | --- | ---
 1 | 1 | 1
 
 ## schema.py
@@ -94,5 +95,5 @@ change_state(1, 0) # Change state of task by id
 
 change_task_text(1, 'New text') # Change text of task by id
 
-change_workers(1, {'Worker1': 1, 'Worker2': 4}) # Change current workers in task by id, dict(worker_name: id), 
+change_workers(1, {'Worker1': 1, 'Worker2': 4}) # Change current workers in task by id, passed dict(worker_name: id)
 ```

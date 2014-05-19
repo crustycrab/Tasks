@@ -53,7 +53,8 @@ def _exec_sql_file(cursor, sql_file):
 
 
 def execute(script, args=None):
-    """execute(script[, args]) execute passed script"""
+    """Execute passed script with args 
+    and return all values with tuple of dicts"""
     connection = _connect_db()
     with connection:
         cursor = connection.cursor(mdb.cursors.DictCursor)
@@ -62,15 +63,14 @@ def execute(script, args=None):
 
 
 def log(id, message):
-    """log(id, message) log passed message
-    to task id to table task_logs"""
+    """Simple log passed message for tasks id"""
     time = _get_time()
     script = 'insert into task_logs (date, task_id, log) values (now(), %s, %s)'
     execute(script, (id, message))
 
 
 def init_db():
-    """Init database"""
+    """Function for init database with default values"""
     connection = _connect_db()
     with connection:
         cursor = connection.cursor()
