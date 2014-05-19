@@ -2,4 +2,4 @@
 
 if __name__ == '__main__':
     from tasks_app import app
-    app.run()
+    app.run(debug=True)

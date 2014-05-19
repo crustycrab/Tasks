@@ -7,27 +7,36 @@ from time import gmtime, strftime
 
 from tasks_app import app
 
+# States of task, u can change it if needed
 STATES = (u'Решено', u'В процессе', u'Отменено')
 
+# Config for establish db connection
+DB_CHARSET = 'utf8'
+DB_HOST = 'localhost'
+DB_USER = 'crusty'
+DB_PASSWORD = 'x'
+DB_NAME = 'testdb'
+DB_USE_UNICODE = True
 
-def connect_db():
-    """Returning connection object"""
+
+def _connect_db():
+    """Return connection object"""
     connection = mdb.connect(
-        app.config.get('DB_HOST'), 
-        app.config.get('DB_USER'), 
-        app.config.get('DB_PASSWORD'),
-        app.config.get('DB_NAME'), 
-        charset=app.config.get('DB_CHARSET'),
-        use_unicode=app.config.get('DB_USE_UNICODE'))
+        host=DB_HOST,
+        user=DB_USER,
+        passwd=DB_PASSWORD,
+        db=DB_NAME,
+        charset=DB_CHARSET,
+        use_unicode=DB_USE_UNICODE)
     return connection
 
 
-def get_time():
+def _get_time():
     """Just current time"""
     return strftime("%Y-%m-%d %H:%M:%S", gmtime())
 
 
-def exec_sql_file(cursor, sql_file):
+def _exec_sql_file(cursor, sql_file):
     statement = ""
 
     for line in open(sql_file):
@@ -46,8 +55,8 @@ def exec_sql_file(cursor, sql_file):
 
 
 def execute(script, args=None):
-    """execute(script) executed passed script"""
-    connection = connect_db()
+    """execute(script[, args]) execute passed script"""
+    connection = _connect_db()
     with connection:
         cursor = connection.cursor(mdb.cursors.DictCursor)
         cursor.execute(script, args)
@@ -55,24 +64,24 @@ def execute(script, args=None):
 
 
 def log(id, message):
-    """log(id, message) logging passed message
+    """log(id, message) log passed message
     to task id to table task_logs"""
-    time = get_time()
-    script = re.sub(r'\s+', ' ', message)
-    connection = connect_db()
-    with connection:
-        cursor = connection.cursor()
-        script = 'insert into task_logs (date, task_id, log) values (now(), %s, %s)'
-        execute(script, (id, message))
+    time = _get_time()
+    script = 'insert into task_logs (date, task_id, log) values (now(), %s, %s)'
+    execute(script, (id, message))
 
 
 def init_db():
     """Init database"""
-    connection = connect_db()
+    connection = _connect_db()
     with connection:
         cursor = connection.cursor()
-        exec_sql_file(cursor,
+        _exec_sql_file(cursor,
                       os.path.join(os.path.dirname(os.path.abspath(__file__)), 'schema.sql'))
+
+def check_id(id):
+    """Check id in tasks table or not"""
+    return dict(id=int(id)) in execute('select id from tasks')
 
 
 def get_workers_by_id(id):
@@ -130,6 +139,8 @@ def change_task_text(id, text):
 
 
 def change_workers(id, form):
+    """Change current workers with passed form with structure like this:
+    {'Worker1': 1, 'Worker2': 4}"""
     actual_workers = get_workers_by_id(id)
     all_workers = get_all_workers()
 
