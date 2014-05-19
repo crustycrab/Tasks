@@ -152,12 +152,12 @@ textarea:focus {
 }
 
 .edit {
-	display: block;
 	padding: 2px;
 	border-radius: 3px;
 	/*background-color: #ccc;*/
 	border: 1px solid #ccc;
 	text-align: center;
+	font-size: .8em;
 }
 
 .edit:hover {

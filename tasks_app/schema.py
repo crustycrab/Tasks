@@ -7,22 +7,19 @@ from time import gmtime, strftime
 
 from tasks_app import app
 
-DB_CHARSET = 'utf8'
-DB_HOST = 'localhost'
-DB_USER = 'crusty'
-DB_PASSWORD = 'x'
-DB_NAME = 'testdb'
-DB_USE_UNICODE = True
-
 STATES = (u'Решено', u'В процессе', u'Отменено')
 
 
 def connect_db():
     """Returning connection object"""
-    return mdb.connect(
-        DB_HOST, DB_USER, DB_PASSWORD,
-        DB_NAME, charset=DB_CHARSET,
-        use_unicode=DB_USE_UNICODE)
+    connection = mdb.connect(
+        app.config.get('DB_HOST'), 
+        app.config.get('DB_USER'), 
+        app.config.get('DB_PASSWORD'),
+        app.config.get('DB_NAME'), 
+        charset=app.config.get('DB_CHARSET'),
+        use_unicode=app.config.get('DB_USE_UNICODE'))
+    return connection
 
 
 def get_time():
